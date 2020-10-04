@@ -8,14 +8,11 @@ Write a function called sum() that takes in two numbers as arguments and then re
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSum() function below and check the console to see if the test passes.*/
 
 // Write your code here
-function sum(a, b, c) { //eslint-disable-line
-  var c = 0;
-  var totalSum = a + b + c;
+function sum(a, b) {
+  var totalSum = a + b;
   var string = 'The sum of ' + a + ' and ' + b + ' is ' + totalSum + '.';
   return [totalSum, string];
 }
-
-sum();
 
 // Here is the test for sum(); uncomment it to run it
 testSum(4, 7, 0);
@@ -31,14 +28,12 @@ Write a function called multiply() that takes in two numbers as arguments and re
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiply() function and see if the test passes.*/
 
 // Write your code here
-function multiply(a, b, c) { //eslint-disable-line
+function multiply(a, b) { //eslint-disable-line
     var totalSum = a * b;
-    var c = 1;
     var string = 'The product of ' + a + ' and ' + b + ' is ' + totalSum + '.';
     return [totalSum, string];
   }
 
-multiply();
 
 // Here is the test for multiply(); uncomment it to run it
 testMultiply(5,9);
@@ -57,11 +52,20 @@ IMPORTANT DETAIL: You may not use the arithmetic operators + and * in this funct
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumAndMultiply() function and see if the test passes.*/
 
 // Write your code here
-function sumAndMultiply(a, b, c) { //eslint-disable-line
-    var totalSum = sum(a, b, c)[0];
-    var totalProduct = multiply(a, b, c)[0];
-    var string = a + ' and ' + b + ' and ' + c + " sum to " + totalSum + ".";
-    return [totalSum, totalProduct, string];
+function sumAndMultiply(a, b, c) { 
+  var totalSum = sum(a, sum(b, c)[0]);
+  // console.log(totalSum[0]);
+  
+  var stringSum = a + ' and ' + b + ' and ' + c + " sum to " + totalSum[0] + ".";
+  // console.log(stringSum);
+
+  var totalProduct = multiply(a, multiply(b, c)[0]);
+  // console.log(totalProduct[0]);
+
+  var stringProduct = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + totalProduct[0] + '.';
+  // console.log(stringProduct);
+
+  return [totalSum[0], totalProduct[0], stringSum, stringProduct];
 }
 
 
