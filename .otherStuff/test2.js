@@ -21,3 +21,4 @@ function testSum() { //eslint-disable-line
       console.log('%c TEST FOR sumAndMultiply() FAILS', 'color: red');
     }
   }
+  
