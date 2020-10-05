@@ -10,7 +10,8 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function sum(a, b) {
   var totalSum = a + b;
-  var string = 'The sum of ' + a + ' and ' + b + ' is ' + totalSum + '.';
+  // var string = 'The sum of ' + a + ' and ' + b + ' is ' + totalSum + '.';
+  var string = `The sum of ${a} and ${b} is ${totalSum}.` //template literal
   return [totalSum, string];
 }
 
@@ -29,9 +30,9 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiply(a, b) { //eslint-disable-line
-    var totalSum = a * b;
-    var string = 'The product of ' + a + ' and ' + b + ' is ' + totalSum + '.';
-    return [totalSum, string];
+    var totalProduct = a * b;
+    var string = 'The product of ' + a + ' and ' + b + ' is ' + totalProduct + '.';
+    return [totalProduct, string];
   }
 
 
@@ -154,9 +155,35 @@ var testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
 
+
+  var totalProduct = 1;
+
+  for (var i = 0; i < dynamicArray.length; i++){
+    totalProduct = multiply(totalProduct, dynamicArray[i])[0];
+    // console.log(totalProduct);
+
+    // var string = 'The numbers ' + dynamicArray[0] + ',' + dynamicArray[1] + ',' + dynamicArray[2] + ',' + dynamicArray[3] + ',' + dynamicArray[4] + ' have a product of ' + totalSum + '.';
+    // console.log(string);
+
+    // totalSum = multiply(dynamicArray.length,)[0];
+    // console.log(totalSum);
+
+    // return (totalSum, string);
+  }
+
+  var string = `The numbers ${dynamicArray} have a product of 120.`;
+    // console.log(string);
+
+  return [totalProduct, string];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+testMultiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
+
+
+// function multiplyAnyArray(dynamicArray) { //eslint-disable-line
+//   var totalProduct = 1;
+//   for (var i = 0; i < dynamicArray.length; i++){
+//     totalProdcut = multiply(totalProduct, dynamicArray[i])[0];
