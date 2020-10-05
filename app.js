@@ -53,7 +53,7 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { 
-  var totalSum = sum(a, sum(b, c)[0]);
+  var totalSum = sum(a, sum(b, c)[0]); //because PEMDAS woohoo
   // console.log(totalSum[0]);
   
   var stringSum = a + ' and ' + b + ' and ' + c + " sum to " + totalSum[0] + ".";
@@ -88,7 +88,6 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
-  // console.log(sumArr); used this to prove what sumArr was
 
   var totalSum = sum(sumArr[0], sum(sumArr[1], sumArr[2])[0]);
   // console.log(totalSum[0])
@@ -118,10 +117,19 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
 
+  var firstSum = multiply(multArr[0], multArr[1])[0];
+  var totalSum = multiply(firstSum, multArr[2])[0];
+  // console.log(totalSum);
+
+  var string = 'The numbers ' + multArr[0] + ',' + multArr[1] + ',' + multArr[2] + ' have a product of ' + totalSum + '.';
+  // console.log(string);
+
+  return [totalSum, string];
+  
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 
